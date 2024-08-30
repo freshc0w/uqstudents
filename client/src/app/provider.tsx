@@ -1,11 +1,11 @@
+import { Spinner } from "@/components/ui/spinner";
 import { queryConfig } from "@/lib/react-query";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactNode, useState } from "react";
+import { ReactNode, useState, Suspense, useEffect } from "react";
 
 type AppProviderProps = {
   children: ReactNode;
 };
-
 export const AppProvider = ({ children }: AppProviderProps) => {
   const [queryClient] = useState(
     () =>
@@ -15,6 +15,14 @@ export const AppProvider = ({ children }: AppProviderProps) => {
   );
 
   return (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    <Suspense
+      fallback={
+        <div className="flex h-screen w-screen items-center justify-center">
+          <Spinner size="xl" />
+        </div>
+      }
+    >
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    </Suspense>
   );
 };
