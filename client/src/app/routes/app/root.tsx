@@ -18,7 +18,10 @@ export const AppRoot = () => {
           key={location.pathname}
           fallback={<div>Something went wrong!</div>}
         >
-          <Outlet />
+          <div>
+            <div>Navbar goes here</div>
+            <Outlet />
+          </div>
         </ErrorBoundary>
       </Suspense>
     </div>
