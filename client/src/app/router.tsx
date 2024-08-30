@@ -30,6 +30,13 @@ export const createAppRouter = (queryClient: QueryClient) =>
         },
       ],
     },
+    {
+      path: "*",
+      lazy: async () => {
+        const { NotFoundRoute } = await import("./routes/not-found");
+        return { Component: NotFoundRoute };
+      },
+    }
   ]);
 
 export const AppRouter = () => {
