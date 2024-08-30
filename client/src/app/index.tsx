@@ -1,8 +1,8 @@
 import { ModeToggle } from "@/components/mode-toggle";
-import "./App.css";
+
 import { Button } from "@/components/ui/button";
 
-function App() {
+export const App = () => {
   return (
     <>
       <ModeToggle />
@@ -10,5 +10,3 @@ function App() {
     </>
   );
 }
-
-export default App;
