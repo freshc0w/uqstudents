@@ -1,7 +1,9 @@
+import { MainErrorFallback } from "@/components/errors/main";
 import { Spinner } from "@/components/ui/spinner";
 import { queryConfig } from "@/lib/react-query";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactNode, useState, Suspense, useEffect } from "react";
+import { ReactNode, useState, Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
 
 type AppProviderProps = {
   children: ReactNode;
@@ -22,7 +24,11 @@ export const AppProvider = ({ children }: AppProviderProps) => {
         </div>
       }
     >
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+      <ErrorBoundary FallbackComponent={MainErrorFallback}>
+        <QueryClientProvider client={queryClient}>
+          {children}
+        </QueryClientProvider>
+      </ErrorBoundary>
     </Suspense>
   );
 };
