@@ -36,7 +36,7 @@ const Navbar = ({
     >
       <Menu setActive={setActive}>
         <HoveredLink to="/app" className="flex items-center space-x-2">
-          <Home />
+          <Home width="1.4rem" height="1.4rem" />
         </HoveredLink>
         <div className="flex justify-center space-x-5">
           <MenuItem setActive={setActive} active={active} item="Reviews">
