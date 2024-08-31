@@ -1,4 +1,5 @@
 import { AppRoot } from "@/app/routes/app/root";
+import { H1 } from "@/components/typography";
 import { QueryClient, useQueryClient } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
@@ -26,7 +27,11 @@ export const createAppRouter = (queryClient: QueryClient) =>
         },
         {
           path: "",
-          Component: () => <div>App home</div>,
+          Component: () => (
+            <div>
+              <H1>App Home</H1>
+            </div>
+          ),
         },
       ],
     },
@@ -36,7 +41,7 @@ export const createAppRouter = (queryClient: QueryClient) =>
         const { NotFoundRoute } = await import("./routes/not-found");
         return { Component: NotFoundRoute };
       },
-    }
+    },
   ]);
 
 export const AppRouter = () => {
