@@ -50,7 +50,7 @@ export const MenuItem = ({
               >
                 <motion.div
                   layout // layout ensures smooth animation
-                  className="w-max h-full p-4"
+                  className="w-max h-full p-2"
                 >
                   {children}
                 </motion.div>
@@ -120,11 +120,11 @@ export const ProductItem = ({
   );
 };
 
-export const HoveredLink = ({ children, ...rest }: any) => {
+export const HoveredLink = ({ children, className, ...rest }: any) => {
   return (
     <Link
       {...rest}
-      className="text-neutral-700 dark:text-neutral-200 hover:text-black "
+      className={`text-neutral-700 dark:text-neutral-200 hover:text-black ${className}`}
     >
       {children}
     </Link>

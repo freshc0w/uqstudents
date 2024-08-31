@@ -32,7 +32,7 @@ const Navbar = ({
 
   return (
     <div
-      className={cn("fixed top-5 inset-x-0 max-w-xl mx-auto z-50", className)}
+      className={cn("sticky top-5 inset-x-0 max-w-xl mx-auto z-50", className)}
     >
       <Menu setActive={setActive}>
         <HoveredLink to="/app" className="flex items-center space-x-2">
@@ -42,7 +42,11 @@ const Navbar = ({
           <MenuItem setActive={setActive} active={active} item="Reviews">
             <div className="flex flex-col space-y-4 text-sm">
               {navigation.review.map((item) => (
-                <HoveredLink key={item.name} to={item.to}>
+                <HoveredLink
+                  key={item.name}
+                  to={item.to}
+                  className="hover:bg-accent p-2 rounded-md transition-colors duration-200 ease-in-out"
+                >
                   <Medium>{item.name}</Medium>
                 </HoveredLink>
               ))}
@@ -64,7 +68,7 @@ const Navbar = ({
           </MenuItem>
           <MenuItem setActive={setActive} active={active} item="Other">
             <div className="flex flex-col space-y-4 text-sm">
-              <HoveredLink to="/profile">
+              <HoveredLink to="/profile" className="hover:bg-accent p-2 rounded-md transition-colors duration-200 ease-in-out">
                 <Medium>Profile</Medium>
               </HoveredLink>
             </div>
