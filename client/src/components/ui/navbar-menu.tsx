@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "@/components/ui/link";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
+import { Medium } from "@/components/typography";
 
 const transition = {
   type: "spring",
@@ -30,7 +31,7 @@ export const MenuItem = ({
         transition={{ duration: 0.3 }}
         className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white"
       >
-        {item}
+        <Medium>{item}</Medium>
       </motion.p>
       {active !== null && (
         <motion.div

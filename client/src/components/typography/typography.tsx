@@ -81,10 +81,26 @@ const Large: React.FC<Props> = ({ className, children }) => {
   return <div className={`text-lg font-semibold ${className}`}>{children}</div>;
 };
 
+const Medium: React.FC<Props> = ({ className, children }) => {
+  return (
+    <div className={`text-base font-medium leading-none ${className}`}>
+      {children}
+    </div>
+  );
+};
+
+const Small: React.FC<Props> = ({ className, children }) => {
+  return (
+    <div className={`text-sm font-medium leading-none ${className}`}>
+      {children}
+    </div>
+  );
+};
+
 const Muted: React.FC<Props> = ({ className, children }) => {
   return (
     <p className={`text-sm text-muted-foreground ${className}`}>{children}.</p>
   );
 };
 
-export { H1, H2, H3, H4, P, Lead, Large, Muted, Blockquote, InlineCode };
+export { H1, H2, H3, H4, P, Lead, Large, Medium, Small, Muted, Blockquote, InlineCode };
