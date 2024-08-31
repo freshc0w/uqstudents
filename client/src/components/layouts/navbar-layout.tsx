@@ -32,7 +32,7 @@ const Navbar = ({
 
   return (
     <div
-      className={cn("sticky top-5 inset-x-0 max-w-xl mx-auto z-50", className)}
+      className={cn("fixed top-5 inset-x-0 max-w-xl mx-auto z-50", className)}
     >
       <Menu setActive={setActive}>
         <HoveredLink to="/app" className="flex items-center space-x-2">
@@ -115,7 +115,7 @@ export const NavbarLayout = ({ children }: { children: ReactNode }) => {
           other: otherNavigation,
         }}
       />
-      {children}
+      <main>{children}</main>
     </div>
   );
 };
