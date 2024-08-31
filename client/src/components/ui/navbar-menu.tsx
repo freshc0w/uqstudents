@@ -75,7 +75,7 @@ export const Menu = ({
       onMouseLeave={() => setActive(null)} // resets the state
       as="nav"
       containerClassName="relative rounded-full border border-transparent dark:bg-black dark:border-white/[0.2] shadow-input dark:shadow-input"
-      className="flex justify-between items-center space-x-4 px-8 py-5"
+      className="flex justify-between items-center space-x-4 px-8 py-4 dark:bg-black backdrop:blur-md"
     >
       {children}
     </HoverBorderGradient>

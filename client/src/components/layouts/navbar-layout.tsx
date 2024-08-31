@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/navbar-menu";
 import { Home } from "lucide-react";
 import { ModeToggle } from "@/components/mode-toggle";
+import { Medium } from "@/components/typography";
 
 type NavInfo = {
   name: string;
@@ -42,7 +43,7 @@ const Navbar = ({
             <div className="flex flex-col space-y-4 text-sm">
               {navigation.review.map((item) => (
                 <HoveredLink key={item.name} to={item.to}>
-                  {item.name}
+                  <Medium>{item.name}</Medium>
                 </HoveredLink>
               ))}
             </div>
@@ -63,7 +64,9 @@ const Navbar = ({
           </MenuItem>
           <MenuItem setActive={setActive} active={active} item="Other">
             <div className="flex flex-col space-y-4 text-sm">
-              <HoveredLink to="/profile">Profile</HoveredLink>
+              <HoveredLink to="/profile">
+                <Medium>Profile</Medium>
+              </HoveredLink>
             </div>
           </MenuItem>
         </div>
