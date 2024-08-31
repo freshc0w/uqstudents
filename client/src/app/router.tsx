@@ -14,16 +14,25 @@ export const createAppRouter = (queryClient: QueryClient) =>
       },
     },
     {
-      path: "/app",
+      path: "/",
       element: <AppRoot />,
       children: [
         {
-          path: "courseReviews",
-          Component: () => <div>Course reviews</div>,
-        },
-        {
-          path: "lecturerReviews",
-          Component: () => <div>Lecturer reviews</div>,
+          path: "reviews",
+          children: [
+            {
+              path: "courses",
+              Component: () => <div>Course reviews</div>,
+            },
+            {
+              path: "lecturers",
+              Component: () => <div>Lecturer reviews</div>,
+            },
+            {
+              path: "clubs",
+              Component: () => <div>Clubs reviews</div>,
+            }
+          ],
         },
         {
           path: "",

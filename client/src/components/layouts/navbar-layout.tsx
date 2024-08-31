@@ -84,9 +84,9 @@ const Navbar = ({
 
 export const NavbarLayout = ({ children }: { children: ReactNode }) => {
   const reviewNavigation = [
-    { name: "Courses", to: "./courseReviews" },
-    { name: "Lecturers", to: "./lecturerReviews" },
-    { name: "Clubs & Societies", to: "./clubs" },
+    { name: "Courses", to: "./reviews/courses" },
+    { name: "Lecturers", to: "./reviews/lecturers" },
+    { name: "Clubs & Societies", to: "./reviews/clubs" },
   ];
   const tutorNavigation = [
     {
