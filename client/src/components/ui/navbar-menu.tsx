@@ -88,16 +88,19 @@ export const ProductItem = ({
   href,
   src,
   target,
+  setActive,
 }: {
   title: string;
   description: string;
   href: string;
   src: string;
   target?: string;
+  setActive?: (item: string | null) => void;
 }) => {
   return (
     <Link
       to={href}
+      onClick={() => setActive && setActive(null)}
       className="flex space-x-2 hover:bg-accent hover:text-accent-foreground p-4 rounded-md transition-colors duration-200 ease-in-out"
       target={target}
     >

@@ -31,7 +31,14 @@ export const createAppRouter = (queryClient: QueryClient) =>
             {
               path: "clubs",
               Component: () => <div>Clubs reviews</div>,
-            }
+            },
+          ],
+        },
+        {
+          path: "tutors",
+          children: [
+            { path: "eait", Component: () => <div>EAIT tutors</div> },
+            { path: "bel", Component: () => <div>BEL tutors</div> },
           ],
         },
         {

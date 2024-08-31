@@ -53,14 +53,14 @@ const Navbar = ({
             </div>
           </MenuItem>
           <MenuItem setActive={setActive} active={active} item="Tutors">
-            <div className="  text-sm grid grid-cols-2 gap-10 p-2">
+            <div className="text-sm grid grid-cols-2 gap-10 p-2">
               {navigation.tutor.map((item) => (
                 <ProductItem
                   key={item.name}
                   title={item.name}
                   href={item.to}
                   src="https://assets.aceternity.com/demos/algochurn.webp"
-                  target="_blank"
+                  setActive={setActive}
                   description={item.description}
                 />
               ))}
@@ -68,7 +68,10 @@ const Navbar = ({
           </MenuItem>
           <MenuItem setActive={setActive} active={active} item="Other">
             <div className="flex flex-col space-y-4 text-sm">
-              <HoveredLink to="/profile" className="hover:bg-accent p-2 rounded-md transition-colors duration-200 ease-in-out">
+              <HoveredLink
+                to="/profile"
+                className="hover:bg-accent p-2 rounded-md transition-colors duration-200 ease-in-out"
+              >
                 <Medium>Profile</Medium>
               </HoveredLink>
             </div>
@@ -91,13 +94,13 @@ export const NavbarLayout = ({ children }: { children: ReactNode }) => {
   const tutorNavigation = [
     {
       name: "EAIT",
-      to: "https://www.eait.uq.edu.au/",
+      to: "./tutors/eait",
       description:
         "Engineering, Architecture and Information Technology tutors",
     },
     {
       name: "BEL",
-      to: "https://bel.uq.edu.au/",
+      to: "./tutors/bel",
       description: "Business, Economics and Law tutors",
     },
   ];
