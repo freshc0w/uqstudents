@@ -115,7 +115,7 @@ export const NavbarLayout = ({ children }: { children: ReactNode }) => {
           other: otherNavigation,
         }}
       />
-      <main>{children}</main>
+      {children}
     </div>
   );
 };
