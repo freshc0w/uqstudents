@@ -8,7 +8,7 @@ export const LandingRoute = () => {
       <h1>Landing</h1>
       <h2>This is the Landing Page</h2>
       <h3>
-        Go to <Button onClick={() => navigate("/app")}>/app</Button>
+        Go to <Button onClick={() => navigate("/reviews")}>/reviews</Button>
       </h3>
     </div>
   );

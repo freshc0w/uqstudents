@@ -2,23 +2,28 @@ import { AppRoot } from "@/app/routes/app/root";
 import { H1 } from "@/components/typography";
 import { QueryClient, useQueryClient } from "@tanstack/react-query";
 import { useMemo } from "react";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 
 export const createAppRouter = (queryClient: QueryClient) =>
   createBrowserRouter([
     {
       path: "/",
-      lazy: async () => {
-        const { LandingRoute } = await import("./routes/landing");
-        return { Component: LandingRoute };
-      },
-    },
-    {
-      path: "/",
       element: <AppRoot />,
       children: [
         {
+          path: "landing",
+          lazy: async () => {
+            const { LandingRoute } = await import("./routes/landing");
+            return { Component: LandingRoute };
+          },
+        },
+        {
           path: "reviews",
+          element: (
+            <div>
+              Reviews <Outlet />
+            </div>
+          ),
           children: [
             {
               path: "courses",
