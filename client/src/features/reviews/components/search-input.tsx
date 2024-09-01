@@ -1,13 +1,7 @@
 import { PlaceholdersAndVanishInput } from "@/components/ui/placeholders-and-vanish-input";
 import placeholders from "../assets/search-placeholder.json";
 import { useState } from "react";
-
-type ReviewType = "courses" | "lecturers" | "clubs";
-
-type SearchInputProps = {
-  reviewType: string;
-  handleSearchSubmit: (searchTerm: string) => void;
-};
+import { SearchInputProps, ReviewType } from "@/features/reviews/types";
 
 export const SearchInput = ({ reviewType, handleSearchSubmit }: SearchInputProps) => {
   const [inputValue, setInputValue] = useState("");
