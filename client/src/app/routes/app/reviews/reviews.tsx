@@ -21,7 +21,10 @@ export const ReviewsRoute = () => {
       "Navigating to",
       `/reviews/${findReviewType(paths)}/${searchTerm}`,
     );
-    navigate(`/reviews/${findReviewType(paths)}/${searchTerm}`);
+    setTimeout(() => {
+      // * prefetch here with query
+      navigate(`/reviews/${findReviewType(paths)}/${searchTerm}`);
+    }, 500);
   };
 
   return (
@@ -33,7 +36,7 @@ export const ReviewsRoute = () => {
         />
       }
     >
-      <Outlet context={handleSearch} />
+      <Outlet />
     </ContentLayout>
   );
 };
