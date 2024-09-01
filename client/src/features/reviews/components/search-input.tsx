@@ -4,10 +4,16 @@ import placeholders from "../assets/search-placeholder.json";
 type ReviewType = "courses" | "lecturers" | "clubs";
 
 type SearchInputProps = {
-  reviewType: ReviewType;
+  reviewType: string;
 };
 
 export const SearchInput = ({ reviewType }: SearchInputProps) => {
+  const reviewTypes: ReviewType[] = ["courses", "lecturers", "clubs"];
+
+  if (!reviewTypes.includes(reviewType as ReviewType)) {
+    reviewType = "courses";
+  }
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);
   };
@@ -23,7 +29,7 @@ export const SearchInput = ({ reviewType }: SearchInputProps) => {
 
   return (
     <PlaceholdersAndVanishInput
-      placeholders={getPlaceholders(reviewType)}
+      placeholders={getPlaceholders(reviewType as ReviewType)}
       onChange={handleChange}
       onSubmit={handleSubmit}
     />
