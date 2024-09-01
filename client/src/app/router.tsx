@@ -1,9 +1,8 @@
-import { CoursesRoute } from "@/app/routes/app/reviews/courses/courses";
 import { AppRoot } from "@/app/routes/app/root";
 import { H1 } from "@/components/typography";
 import { QueryClient, useQueryClient } from "@tanstack/react-query";
 import { useMemo } from "react";
-import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 export const createAppRouter = (queryClient: QueryClient) =>
   createBrowserRouter([
@@ -21,21 +20,80 @@ export const createAppRouter = (queryClient: QueryClient) =>
         {
           path: "reviews",
           lazy: async () => {
-            const { ReviewsRoute } = await import("./routes/app/reviews/reviews");
+            const { ReviewsRoute } = await import(
+              "./routes/app/reviews/reviews"
+            );
             return { Component: ReviewsRoute };
           },
           children: [
             {
               path: "courses",
-              Component: () => <CoursesRoute />,
+              children: [
+                {
+                  path: "",
+                  lazy: async () => {
+                    const { CoursesRoute } = await import(
+                      "./routes/app/reviews/courses/courses"
+                    );
+                    return { Component: CoursesRoute };
+                  },
+                },
+                {
+                  path: ":id",
+                  lazy: async () => {
+                    const { CourseRoute } = await import(
+                      "./routes/app/reviews/courses/course"
+                    );
+                    return { Component: CourseRoute };
+                  },
+                },
+              ],
             },
             {
               path: "lecturers",
-              Component: () => <div>Lecturer reviews</div>,
+              children: [
+                {
+                  path: "",
+                  lazy: async () => {
+                    const { LecturersRoute } = await import(
+                      "./routes/app/reviews/lecturers/lecturers"
+                    );
+                    return { Component: LecturersRoute };
+                  },
+                },
+                {
+                  path: ":id",
+                  lazy: async () => {
+                    const { LecturerRoute } = await import(
+                      "./routes/app/reviews/lecturers/lecturer"
+                    );
+                    return { Component: LecturerRoute };
+                  },
+                },
+              ],
             },
             {
               path: "clubs",
-              Component: () => <div>Clubs reviews</div>,
+              children: [
+                {
+                  path: "",
+                  lazy: async () => {
+                    const { ClubsRoute } = await import(
+                      "./routes/app/reviews/clubs/clubs"
+                    );
+                    return { Component: ClubsRoute };
+                  },
+                },
+                {
+                  path: ":id",
+                  lazy: async () => {
+                    const { ClubRoute } = await import(
+                      "./routes/app/reviews/clubs/club"
+                    );
+                    return { Component: ClubRoute };
+                  },
+                },
+              ],
             },
           ],
         },
