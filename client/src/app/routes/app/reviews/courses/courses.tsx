@@ -1,3 +1,3 @@
 export const CoursesRoute = () => {
-  return <div>Courses</div>;
+  return <div>Courses Landing Page</div>;
 };

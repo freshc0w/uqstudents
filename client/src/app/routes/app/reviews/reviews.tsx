@@ -1,28 +1,39 @@
 import { ContentLayout } from "@/components/layouts";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { SearchInput } from "@/features/reviews/components/search-input";
 
 export const ReviewsRoute = () => {
   const location = useLocation();
-  const path = location.pathname.split("/").pop();
-  const reviewType = path ?? "courses";
+  const navigate = useNavigate();
 
-  // TODO: navigate to reviews/courses/:id, where searchterm finds the id.
+  const paths = location.pathname.split("/");
+
+  const findReviewType = (path: string[]) => {
+    const reviewTypes = ["courses", "lecturers", "clubs"];
+    return (
+      (path.find((p) => reviewTypes.includes(p as string)) as string) ??
+      "courses"
+    );
+  };
+
   const handleSearch = (searchTerm: string) => {
-    // navigate(`/reviews/${reviewType}/${searchTermID}`);
-    console.log("searching for", searchTerm);
+    console.log(
+      "Navigating to",
+      `/reviews/${findReviewType(paths)}/${searchTerm}`,
+    );
+    navigate(`/reviews/${findReviewType(paths)}/${searchTerm}`);
   };
 
   return (
     <ContentLayout
       headerChildren={
         <SearchInput
-          reviewType={reviewType}
+          reviewType={findReviewType(paths)}
           handleSearchSubmit={handleSearch}
         />
       }
     >
-      <Outlet />
+      <Outlet context={handleSearch} />
     </ContentLayout>
   );
 };
