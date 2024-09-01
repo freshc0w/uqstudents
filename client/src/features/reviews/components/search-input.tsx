@@ -24,7 +24,11 @@ export const SearchInput = ({
   };
 
   const getPlaceholders = (type: ReviewType) => {
-    return placeholders[type];
+    const randomiseArray = (array: string[]) => {
+      return array.sort(() => Math.random() - 0.5);
+    }
+
+    return randomiseArray(placeholders[type]);
   };
 
   return (
