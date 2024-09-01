@@ -1,17 +1,10 @@
 import { ContentLayout } from "@/components/layouts";
 import { Outlet } from "react-router-dom";
-
-const Input = () => {
-  return (
-    <div className="w-[100%] flex justify-center">
-      <input type="text" />
-    </div>
-  );
-};
+import { SearchInput } from "@/features/reviews/components/search-input";
 
 export const ReviewsRoute = () => {
   return (
-    <ContentLayout headerChildren={<Input />}>
+    <ContentLayout headerChildren={<SearchInput reviewType="lecturers" />}>
       <Outlet />
     </ContentLayout>
   );
