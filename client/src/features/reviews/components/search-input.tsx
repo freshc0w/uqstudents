@@ -1,13 +1,16 @@
 import { PlaceholdersAndVanishInput } from "@/components/ui/placeholders-and-vanish-input";
 import placeholders from "../assets/search-placeholder.json";
+import { useState } from "react";
 
 type ReviewType = "courses" | "lecturers" | "clubs";
 
 type SearchInputProps = {
   reviewType: string;
+  handleSearchSubmit: (searchTerm: string) => void;
 };
 
-export const SearchInput = ({ reviewType }: SearchInputProps) => {
+export const SearchInput = ({ reviewType, handleSearchSubmit }: SearchInputProps) => {
+  const [inputValue, setInputValue] = useState("");
   const reviewTypes: ReviewType[] = ["courses", "lecturers", "clubs"];
 
   if (!reviewTypes.includes(reviewType as ReviewType)) {
@@ -15,12 +18,12 @@ export const SearchInput = ({ reviewType }: SearchInputProps) => {
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
+    setInputValue(e.target.value);
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("submitted");
+    handleSearchSubmit(inputValue);
   };
 
   const getPlaceholders = (type: ReviewType) => {
