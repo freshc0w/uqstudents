@@ -1,6 +1,6 @@
 import { ContentLayout } from "@/components/layouts";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import { SearchInput } from "@/features/reviews/components/search-input";
+import { SearchBar } from "@/features/reviews/components/search-bar";
 
 export const ReviewsRoute = () => {
   const location = useLocation();
@@ -21,19 +21,22 @@ export const ReviewsRoute = () => {
       "Navigating to",
       `/reviews/${findReviewType(paths)}/${searchTerm}`,
     );
-    navigate(`/reviews/${findReviewType(paths)}/${searchTerm}`);
+    setTimeout(() => {
+      // * prefetch here with query
+      navigate(`/reviews/${findReviewType(paths)}/${searchTerm}`);
+    }, 500);
   };
 
   return (
     <ContentLayout
       headerChildren={
-        <SearchInput
+        <SearchBar
           reviewType={findReviewType(paths)}
           handleSearchSubmit={handleSearch}
         />
       }
     >
-      <Outlet context={handleSearch} />
+      <Outlet />
     </ContentLayout>
   );
 };

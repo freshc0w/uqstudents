@@ -1,15 +1,12 @@
 import { PlaceholdersAndVanishInput } from "@/components/ui/placeholders-and-vanish-input";
 import placeholders from "../assets/search-placeholder.json";
 import { useState } from "react";
+import { SearchInputProps, ReviewType } from "@/features/reviews/types";
 
-type ReviewType = "courses" | "lecturers" | "clubs";
-
-type SearchInputProps = {
-  reviewType: string;
-  handleSearchSubmit: (searchTerm: string) => void;
-};
-
-export const SearchInput = ({ reviewType, handleSearchSubmit }: SearchInputProps) => {
+export const SearchInput = ({
+  reviewType,
+  handleSearchSubmit,
+}: SearchInputProps) => {
   const [inputValue, setInputValue] = useState("");
   const reviewTypes: ReviewType[] = ["courses", "lecturers", "clubs"];
 
@@ -27,7 +24,11 @@ export const SearchInput = ({ reviewType, handleSearchSubmit }: SearchInputProps
   };
 
   const getPlaceholders = (type: ReviewType) => {
-    return placeholders[type];
+    const randomiseArray = (array: string[]) => {
+      return array.sort(() => Math.random() - 0.5);
+    }
+
+    return randomiseArray(placeholders[type]);
   };
 
   return (
@@ -35,6 +36,7 @@ export const SearchInput = ({ reviewType, handleSearchSubmit }: SearchInputProps
       placeholders={getPlaceholders(reviewType as ReviewType)}
       onChange={handleChange}
       onSubmit={handleSubmit}
+      className="focus-visible:ring-1 focus-visible:ring-ring shadow-sm hover:shadow-md text-accent-foreground border-2 focus:border-primary"
     />
   );
 };
