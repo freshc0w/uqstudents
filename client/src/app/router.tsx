@@ -19,11 +19,10 @@ export const createAppRouter = (queryClient: QueryClient) =>
         },
         {
           path: "reviews",
-          element: (
-            <div>
-              Reviews <Outlet />
-            </div>
-          ),
+          lazy: async () => {
+            const { ReviewsRoute } = await import("./routes/app/reviews/reviews");
+            return { Component: ReviewsRoute };
+          },
           children: [
             {
               path: "courses",

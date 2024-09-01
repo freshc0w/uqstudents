@@ -108,14 +108,16 @@ export const NavbarLayout = ({ children }: { children: ReactNode }) => {
   return (
     <div>
       {" "}
-      <Navbar
-        navigation={{
-          review: reviewNavigation,
-          tutor: tutorNavigation,
-          other: otherNavigation,
-        }}
-      />
-      {children}
+      <div>
+        <Navbar
+          navigation={{
+            review: reviewNavigation,
+            tutor: tutorNavigation,
+            other: otherNavigation,
+          }}
+        />
+      </div>
+      <div className="mt-24">{children}</div>
     </div>
   );
 };
