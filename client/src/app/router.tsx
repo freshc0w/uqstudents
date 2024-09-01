@@ -1,3 +1,4 @@
+import { CoursesRoute } from "@/app/routes/app/reviews/courses/courses";
 import { AppRoot } from "@/app/routes/app/root";
 import { H1 } from "@/components/typography";
 import { QueryClient, useQueryClient } from "@tanstack/react-query";
@@ -19,15 +20,14 @@ export const createAppRouter = (queryClient: QueryClient) =>
         },
         {
           path: "reviews",
-          element: (
-            <div>
-              Reviews <Outlet />
-            </div>
-          ),
+          lazy: async () => {
+            const { ReviewsRoute } = await import("./routes/app/reviews/reviews");
+            return { Component: ReviewsRoute };
+          },
           children: [
             {
               path: "courses",
-              Component: () => <div>Course reviews</div>,
+              Component: () => <CoursesRoute />,
             },
             {
               path: "lecturers",

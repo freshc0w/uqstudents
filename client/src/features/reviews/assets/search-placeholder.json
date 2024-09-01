@@ -1,0 +1,5 @@
+{
+  "courses": ["CSSE1001", "CSSE2010", "CSSE2310", "CSSE3002", "CSSE3010"],
+  "lecturers": ["Dr. David", "Dr. John", "Dr. Jane", "Dr. Smith", "Dr. Doe"],
+  "clubs": ["UQCS", "UQMS", "UQES", "UQBS", "UQSS"]
+}
