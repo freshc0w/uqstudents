@@ -40,7 +40,7 @@ export const createAppRouter = (queryClient: QueryClient) =>
                   },
                 },
                 {
-                  path: ":id",
+                  path: ":courseCode",
                   lazy: async () => {
                     const { CourseRoute } = await import(
                       "./routes/app/reviews/courses/course"

@@ -1,0 +1,17 @@
+[
+  {
+    "code": "CSSE1001",
+    "title": "Introduction to Software Engineering (CSSE1001)",
+    "level": "Undergraduate",
+    "faculty": "\n\tEngineering, Architecture & Information Technology\t",
+    "school": "\n\tElec Engineering, Comp Science\t",
+    "units": "2",
+    "duration": "One Semester",
+    "mode": "In Person",
+    "contact": "Lecture 2 Hours/ Week Tutorial 1 Hour/ Week Practical 2 Hours/ Week",
+    "incompatible": "COMP1502, CSSE7030, ENGG1001",
+    "prerequisite": "",
+    "assessmentMethods": "",
+    "summary": "Introduction to Software Engineering through programming with particular focus on the fundamentals of computing and programming, using an exploratory problem-based approach. Building abstractions with procedures, data and objects; data modelling; designing, coding and debugging programs of increasing complexity"
+  }
+]
