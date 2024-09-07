@@ -5,6 +5,7 @@ import courseInfos from "@/features/reviews/courses/assets/course-info.json"; //
 import BoxReveal from "@/components/ui/box-reveal";
 import { CourseHeaderInfo } from "@/features/reviews/courses/components/course-header-info";
 import { CourseInfo } from "@/features/reviews/courses/types";
+import { SecatTable } from "@/features/reviews/courses/components/secat-table";
 
 // TODO: Implement Head for SEO
 export const CourseRoute = () => {
@@ -27,9 +28,7 @@ export const CourseRoute = () => {
   return (
     <ReviewLayout>
       <aside className="p-2 sm:p-3 md:p-5 lg:p-6 border border-red-200 sm:w-1/3">
-        <BoxReveal duration={0.5} boxColor="primary">
-          <H2>SECAT Evaluations</H2>
-        </BoxReveal>
+        <SecatTable code={courseCode}/>
       </aside>
       <main className="p-2 sm:p-3 md:p-5 lg:p-6 border border-yellow-200 sm:w-2/3">
         <CourseHeaderInfo courseInfo={courseInfo} />
