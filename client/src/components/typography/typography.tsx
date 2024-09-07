@@ -47,7 +47,7 @@ const H4: React.FC<Props> = ({ className, children }) => {
 
 const P: React.FC<Props> = ({ className, children }) => {
   return (
-    <p className={`leading-7 [&:not(:first-child)]:mt-6 ${className}`}>
+    <p className={`text-sm sm:text-base leading-7 [&:not(:first-child)]:mt-6 ${className}`}>
       {children}
     </p>
   );
@@ -99,7 +99,7 @@ const Small: React.FC<Props> = ({ className, children }) => {
 
 const Muted: React.FC<Props> = ({ className, children }) => {
   return (
-    <p className={`text-sm text-muted-foreground ${className}`}>{children}.</p>
+    <p className={`text-sm text-muted-foreground ${className}`}>{children}</p>
   );
 };
 

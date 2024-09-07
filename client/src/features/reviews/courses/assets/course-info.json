@@ -1,0 +1,32 @@
+[
+  {
+    "code": "CSSE1001",
+    "title": "Introduction to Software Engineering (CSSE1001)",
+    "level": "Undergraduate",
+    "faculty": "\n\tEngineering, Architecture & Information Technology\t",
+    "school": "\n\tElec Engineering, Comp Science\t",
+    "units": "2",
+    "duration": "One Semester",
+    "mode": "In Person",
+    "contact": "Lecture 2 Hours/ Week Tutorial 1 Hour/ Week Practical 2 Hours/ Week",
+    "incompatible": "COMP1502, CSSE7030, ENGG1001",
+    "prerequisite": "",
+    "assessmentMethods": "",
+    "summary": "Introduction to Software Engineering through programming with particular focus on the fundamentals of computing and programming, using an exploratory problem-based approach. Building abstractions with procedures, data and objects; data modelling; designing, coding and debugging programs of increasing complexity"
+  },
+  {
+    "code": "COMP3506",
+    "title": "Algorithms and Data Structures (COMP3506)",
+    "level": "Undergraduate",
+    "faculty": "\n\tEngineering, Architecture & Information Technology\t",
+    "school": "\n\tElec Engineering, Comp Science\t",
+    "units": "2",
+    "duration": "One Semester",
+    "mode": "In Person",
+    "contact": "Lecture 2 Hours/ Week Tutorial 2 Hours/ Week",
+    "incompatible": "COMP2502 or COMP7505",
+    "prerequisite": "CSSE2002 and (MATH1061 or (CSSE2010 and STAT2202))",
+    "assessmentMethods": "",
+    "summary": "Data structures and types, mapping of abstract information structures into representations on primary and secondary storage. Analysis of time and space complexity of algorithms. Sequences. Lists. Stacks. Queues. Sets, multisets, tables. Trees. Sorting. Hash tables. Priority queues. Graphs. String algorithms."
+  }
+]
