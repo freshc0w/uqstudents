@@ -10,6 +10,7 @@ export const SecatTable = ({ code }: SecatTableProps) => {
     <>
       <BoxReveal duration={0.5} boxColor="primary">
         <H2>SECAT Evaluations</H2>
+        
       </BoxReveal>
     </>
   );

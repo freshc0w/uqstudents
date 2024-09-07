@@ -9,7 +9,7 @@ import { SecatTable } from "@/features/reviews/courses/components/secat-table";
 
 // TODO: Implement Head for SEO
 export const CourseRoute = () => {
-  let { courseCode } = useParams();
+  let { courseCode } = useParams<{ courseCode: string }>();
   courseCode = courseCode?.toUpperCase();
   const courseInfo = (courseInfos as CourseInfo[]).find(
     (course) => course.code === courseCode,
@@ -28,7 +28,7 @@ export const CourseRoute = () => {
   return (
     <ReviewLayout>
       <aside className="p-2 sm:p-3 md:p-5 lg:p-6 border border-red-200 sm:w-1/3">
-        <SecatTable code={courseCode}/>
+        <SecatTable code={courseCode as string} />
       </aside>
       <main className="p-2 sm:p-3 md:p-5 lg:p-6 border border-yellow-200 sm:w-2/3">
         <CourseHeaderInfo courseInfo={courseInfo} />
