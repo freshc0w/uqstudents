@@ -26,10 +26,9 @@ export const CourseRoute = () => {
   return (
     <ReviewLayout>
       <aside className="p-2 sm:p-3 md:p-5 lg:p-6 border border-red-200 sm:w-1/3">
-        <div>
+        <BoxReveal duration={0.5} boxColor="primary">
           <H2>SECAT Evaluations</H2>
-          <div>SECAT TABLE GOES HERE</div>
-        </div>
+        </BoxReveal>
       </aside>
       <main className="p-2 sm:p-3 md:p-5 lg:p-6 border border-yellow-200 sm:w-2/3">
         <BoxReveal duration={0.5} boxColor="primary">
