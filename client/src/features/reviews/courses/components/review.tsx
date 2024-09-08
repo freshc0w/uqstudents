@@ -1,12 +1,14 @@
 import { H4, Lead, P, Small } from "@/components/typography";
+import { ActionableIcon } from "@/features/reviews/courses/components/actionable-icon";
 import { RatingChartComponent } from "@/features/reviews/courses/components/rating-chart-component";
+import { ThumbsUp, ThumbsDown } from "lucide-react";
 
 export const Review = () => {
   return (
     <div className="py-2 flex">
       <div className="p-2 md:p-3 grid place-items-center">
         {/* TODO: Add the REAL rating value */}
-        <RatingChartComponent value={Math.floor((Math.random() * 100))} />
+        <RatingChartComponent value={Math.floor(Math.random() * 100)} />
       </div>
       <div className="flex-1 space-y-2">
         <H4>Anonymous Elephant</H4>
@@ -24,6 +26,16 @@ export const Review = () => {
           <Lead className="text-accend sm:text-sm">
             Taken on Semester 1, 2024
           </Lead>
+        </div>
+        <div className="flex items-center justify-end gap-4">
+          <ActionableIcon>
+            <ThumbsUp size={20} />
+            <Small>123</Small>
+          </ActionableIcon>
+          <ActionableIcon>
+            <ThumbsDown size={20} />
+            <Small>123</Small>
+          </ActionableIcon>
         </div>
       </div>
     </div>

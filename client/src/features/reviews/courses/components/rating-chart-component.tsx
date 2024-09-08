@@ -31,7 +31,7 @@ export function RatingChartComponent({ value }: RatingChartComponentProps) {
   return (
     <ChartContainer
       config={chartConfig}
-      className="mx-auto aspect-square max-h-[250px] min-w-[100px]"
+      className="mx-auto aspect-square max-h-[250px] min-w-[100px] w-full"
     >
       <RadialBarChart
         data={chartData}
