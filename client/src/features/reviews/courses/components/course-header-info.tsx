@@ -22,7 +22,7 @@ export const CourseHeaderInfo = ({ courseInfo }: CourseHeaderInfoProps) => {
       <HalfSeparator className="bg-primary mt-2" />
       <div className="mt-6">
         <BoxReveal duration={0.5} boxColor="primary">
-          <BlurIn duration={1}>
+          <BlurIn duration={0.75}>
             <P className="leading-normal">{summary}</P>
           </BlurIn>
         </BoxReveal>

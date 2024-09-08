@@ -18,7 +18,7 @@ export const Review = () => {
         <BoxReveal duration={0.5} boxColor="primary">
           <H4>Anonymous Elephant</H4>
         </BoxReveal>
-        <BlurIn duration={1}>
+        <BlurIn duration={0.75}>
           <P className="overflow-hidden overflow-ellipsis line-clamp-3 leading-normal sm:text-sm">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
             excepturi maxime earum ab cupiditate accusamus perspiciatis a velit
