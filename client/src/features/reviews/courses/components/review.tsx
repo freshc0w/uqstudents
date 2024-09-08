@@ -1,19 +1,13 @@
 import { H4, Lead, P, Small } from "@/components/typography";
-import {
-  Label,
-  PolarGrid,
-  PolarRadiusAxis,
-  RadialBar,
-  RadialBarChart,
-} from "recharts";
+import { RatingChartComponent } from "@/features/reviews/courses/components/rating-chart-component";
 
 export const Review = () => {
-  const chartData = [
-    { browser: "safari", visitors: 1260, fill: "var(--color-primary)" },
-  ];
   return (
     <div className="py-2 flex">
-      <div className="p-2 md:p-3 grid place-items-center">IMAGE GOES HERE</div>
+      <div className="p-2 md:p-3 grid place-items-center">
+        {/* TODO: Add the REAL rating value */}
+        <RatingChartComponent value={Math.floor((Math.random() * 100))} />
+      </div>
       <div className="flex-1 space-y-2">
         <H4>Anonymous Elephant</H4>
         <P className="overflow-hidden overflow-ellipsis line-clamp-3 leading-normal sm:text-sm">
