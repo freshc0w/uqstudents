@@ -47,7 +47,7 @@ const H4: React.FC<Props> = ({ className, children }) => {
 
 const P: React.FC<Props> = ({ className, children }) => {
   return (
-    <p className={`text-sm sm:text-base leading-7 [&:not(:first-child)]:mt-6 ${className}`}>
+    <p className={`text-sm sm:text-base leading-7 [&:not(:first-child)]:mt-4 ${className}`}>
       {children}
     </p>
   );
