@@ -7,6 +7,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import BlurIn from "@/components/ui/blur-in";
 
 type SecatRowProps = {
   question: Question;
@@ -39,9 +40,11 @@ export const SecatRow = ({ question }: SecatRowProps) => {
         .reverse() // starting from strong_disagree
         .map((response, idx) => (
           <TableCell key={response.percent * idx}>
-            <Small className={getTextColor(response.percent)}>
-              {response.percent.toFixed(0)}%
-            </Small>
+            <BlurIn duration={0.75}>
+              <Small className={getTextColor(response.percent)}>
+                {response.percent.toFixed(0)}%
+              </Small>
+            </BlurIn>
           </TableCell>
         ))}
     </TableRow>
