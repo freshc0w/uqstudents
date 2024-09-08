@@ -24,7 +24,7 @@ export const CourseHeaderInfo = ({ courseInfo }: CourseHeaderInfoProps) => {
           <P className="leading-normal">{summary}</P>
         </BoxReveal>
       </div>
-      <Separator className="mt-3 sm:mt-5 md:mt-7" />
+      <Separator className="mt-3 sm:mt-5 md:mt-7 bg-muted-foreground" />
     </>
   );
 };
