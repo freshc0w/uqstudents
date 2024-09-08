@@ -59,7 +59,8 @@ export const SecatTable = ({ code }: SecatTableProps) => {
             </TableCaption>
             <TableHeader>
               <TableRow>
-                <TableCell /> {/*empty cell for question description*/}
+                <TableCell />
+                {/*empty cell for question description*/}
                 {secatInfo?.questions?.q1 &&
                   Object.keys(secatInfo.questions.q1)
                     .reverse() // start from strong_disagree
