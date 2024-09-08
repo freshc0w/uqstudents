@@ -40,7 +40,7 @@ export const SecatRow = ({ question }: SecatRowProps) => {
         .reverse() // starting from strong_disagree
         .map((response, idx) => (
           <TableCell key={response.percent * idx}>
-            <BlurIn duration={0.75}>
+            <BlurIn duration={1}>
               <Small className={getTextColor(response.percent)}>
                 {response.percent.toFixed(0)}%
               </Small>
