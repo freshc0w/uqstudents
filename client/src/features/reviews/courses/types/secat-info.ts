@@ -1,16 +1,30 @@
-type Response = {
+export type Response = {
   value: number;
   total: number;
   percent: number;
 };
 
-type Question = {
+export type QuestionNums =
+  | "q1"
+  | "q2"
+  | "q3"
+  | "q4"
+  | "q5"
+  | "q6"
+  | "q7"
+  | "q8";
+
+export type Sentiment =
+  | "strong_disagree"
+  | "disagree"
+  | "neutral"
+  | "agree"
+  | "strong_agree";
+
+export type Question = {
   description: string;
-  strong_agree: Response;
-  agree: Response;
-  neutral: Response;
-  disagree: Response;
-  strong_disagree: Response;
+} & {
+  [key in Sentiment]: Response;
 };
 
 export type SecatInfo = {
@@ -20,5 +34,5 @@ export type SecatInfo = {
   enrolled: number;
   rate: string;
   semester: 1;
-  questions: { [key: string]: Question };
+  questions: { [key in QuestionNums]: Question };
 };

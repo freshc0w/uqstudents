@@ -2,7 +2,7 @@ import { H1, Muted, P } from "@/components/typography";
 import BoxReveal from "@/components/ui/box-reveal";
 import { HalfSeparator } from "@/components/ui/half-separator";
 import { CourseInfo } from "@/features/reviews/courses/types";
-import { Separator } from "@radix-ui/react-dropdown-menu";
+import { Separator } from "@/components/ui/separator";
 
 type CourseHeaderInfoProps = {
   courseInfo: CourseInfo;
