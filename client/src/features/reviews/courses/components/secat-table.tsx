@@ -5,8 +5,6 @@ import {
   TableBody,
   TableCaption,
   TableCell,
-  TableFooter,
-  TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
@@ -24,6 +22,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { SecatEnrolTable } from "@/features/reviews/courses/components/secat-enrol-table";
 
 type SecatTableProps = {
   code: string;
@@ -52,43 +51,46 @@ export const SecatTable = ({ code }: SecatTableProps) => {
       {!secatInfo ? (
         <p>No SECAT information available for this course</p>
       ) : (
-        <Table>
-          <TableCaption>
-            Semester {secatInfo?.semester}, Year {secatInfo?.year}
-          </TableCaption>
-          <TableHeader>
-            <TableRow>
-              <TableCell /> {/*empty cell for question description*/}
-              {secatInfo?.questions?.q1 &&
-                Object.keys(secatInfo.questions.q1)
-                  .reverse() // start from strong_disagree
-                  .map((responseKey) => (
-                    <TableCell key={responseKey}>
-                      <TooltipProvider>
-                        <Tooltip>
-                          <TooltipTrigger className="cursor-default">
-                            {iconMap[responseKey as Sentiment]}
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <Small className="capitalize">
-                              {responseKey.split("_").join(" ")}
-                            </Small>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
-                    </TableCell>
-                  ))}
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {Object.keys(secatInfo.questions).map((questionNum) => (
-              <SecatRow
-                key={questionNum}
-                question={secatInfo.questions[questionNum as QuestionNums]}
-              />
-            ))}
-          </TableBody>
-        </Table>
+        <>
+          <SecatEnrolTable secatInfo={secatInfo} />
+          <Table>
+            <TableCaption>
+              Semester {secatInfo?.semester}, Year {secatInfo?.year}
+            </TableCaption>
+            <TableHeader>
+              <TableRow>
+                <TableCell /> {/*empty cell for question description*/}
+                {secatInfo?.questions?.q1 &&
+                  Object.keys(secatInfo.questions.q1)
+                    .reverse() // start from strong_disagree
+                    .map((responseKey) => (
+                      <TableCell key={responseKey}>
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger className="cursor-default">
+                              {iconMap[responseKey as Sentiment]}
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <Small className="capitalize">
+                                {responseKey.split("_").join(" ")}
+                              </Small>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </TableCell>
+                    ))}
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {Object.keys(secatInfo.questions).map((questionNum) => (
+                <SecatRow
+                  key={questionNum}
+                  question={secatInfo.questions[questionNum as QuestionNums]}
+                />
+              ))}
+            </TableBody>
+          </Table>
+        </>
       )}
     </>
   );

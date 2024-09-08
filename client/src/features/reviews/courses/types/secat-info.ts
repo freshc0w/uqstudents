@@ -32,6 +32,7 @@ export type SecatInfo = {
   description: string;
   year: string;
   enrolled: number;
+  responses: number;
   rate: string;
   semester: 1;
   questions: { [key in QuestionNums]: Question };
