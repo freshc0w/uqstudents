@@ -28,7 +28,7 @@ export const CourseRoute = () => {
 
   return (
     <ReviewLayout>
-      <aside className="p-2 sm:p-3 md:p-5 lg:p-6 sm:w-1/3">
+      <aside className="p-2 sm:p-3 md:p-5 lg:p-6 sm:w-1/3 space-y-2">
         <SecatTable code={courseCode as string} />
       </aside>
       <main className="p-2 sm:p-3 md:p-5 lg:p-6 sm:w-2/3">
