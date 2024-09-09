@@ -28,10 +28,10 @@ export const CourseRoute = () => {
 
   return (
     <ReviewLayout>
-      <aside className="p-2 sm:p-3 md:p-5 lg:p-6 border border-red-200 sm:w-1/3">
+      <aside className="p-2 sm:p-3 md:p-5 lg:p-6 sm:w-1/3">
         <SecatTable code={courseCode as string} />
       </aside>
-      <main className="p-2 sm:p-3 md:p-5 lg:p-6 border border-yellow-200 sm:w-2/3">
+      <main className="p-2 sm:p-3 md:p-5 lg:p-6 sm:w-2/3">
         <CourseHeaderInfo courseInfo={courseInfo} />
         <section className="py-2 md:py-4">
           <BoxReveal duration={0.5} boxColor="primary">
