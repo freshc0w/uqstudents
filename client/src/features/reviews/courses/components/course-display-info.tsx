@@ -33,25 +33,26 @@ const InfoDisplay = ({
   label: string;
   info: string;
   className?: string;
-}) => (
-  <TooltipProvider>
-    <Tooltip>
-      <TooltipTrigger>
-        <div className="flex items-center gap-2 cursor-default">
-          <Small className="italic text-sm sm:text-xs">{label}</Small>
-          <BoldHighlightText
-            className={cn("text-sm sm:text-md md:text-lg", className)}
-          >
-            {info}
-          </BoldHighlightText>
-        </div>
-      </TooltipTrigger>
-      <TooltipContent>
-        <Small>{info}</Small>
-      </TooltipContent>
-    </Tooltip>
-  </TooltipProvider>
-);
+}) =>
+  !info ? null : (
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger>
+          <div className="flex items-center gap-2 cursor-default">
+            <Small className="italic text-sm sm:text-xs">{label}</Small>
+            <BoldHighlightText
+              className={cn("text-sm sm:text-md md:text-lg", className)}
+            >
+              {info}
+            </BoldHighlightText>
+          </div>
+        </TooltipTrigger>
+        <TooltipContent>
+          <Small>{info}</Small>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+  );
 
 type CourseInfoProps = {
   courseInfo: CourseInfo;
@@ -66,7 +67,7 @@ export const CourseDisplayInfo = ({ courseInfo }: CourseInfoProps) => {
   };
   return (
     <>
-      <BlurIn duration={0.75} className="space-y-2">
+      <BlurIn duration={0.75} className="space-y-2 md:space-y-4">
         <div className="flex gap-2 justify-around">
           <Ratings
             rating={3.5}
@@ -89,6 +90,23 @@ export const CourseDisplayInfo = ({ courseInfo }: CourseInfoProps) => {
           <InfoDisplay label="Level" info={courseInfo.level} />
           <Separator orientation="vertical" className="w-[1.5px]" />
           <InfoDisplay label="Mode" info={courseInfo.mode} />
+        </div>
+        <div className="space-y-4 flex flex-col">
+          {Object.entries({
+            units: courseInfo.units,
+            prerequisites: courseInfo.prerequisite,
+            incompatible: courseInfo.incompatible,
+            contact: courseInfo.contact,
+          }).map(([key, value]) => {
+            return (
+              <InfoDisplay
+                key={key}
+                label={key}
+                info={value}
+                className="text-start md:font-medium md:text-md"
+              />
+            );
+          })}
         </div>
       </BlurIn>
     </>
