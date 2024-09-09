@@ -34,7 +34,7 @@ interface RatingsProps extends React.HTMLAttributes<HTMLDivElement> {
   noText?: boolean;
 }
 
-export const CommentRatings = ({
+export const Ratings = ({
   rating: initialRating,
   totalStars = 5,
   size = 20,
