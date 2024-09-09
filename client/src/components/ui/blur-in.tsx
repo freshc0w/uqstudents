@@ -12,28 +12,34 @@ interface BlurIntProps {
   };
   duration?: number;
   children?: React.ReactNode;
+  Tag?: React.ElementType;
 }
-const BlurIn = ({ word, className, variant, duration = 1, children }: BlurIntProps) => {
+const BlurIn = ({
+  word,
+  className,
+  variant,
+  duration = 1,
+  children,
+  Tag = "h1",
+}: BlurIntProps) => {
   const defaultVariants = {
     hidden: { filter: "blur(10px)", opacity: 0 },
     visible: { filter: "blur(0px)", opacity: 1 },
   };
   const combinedVariants = variant || defaultVariants;
+  const MotionTag = motion[Tag as "h1"];
 
   return (
-    <motion.h1
+    <MotionTag
       initial="hidden"
       animate="visible"
       transition={{ duration }}
       variants={combinedVariants}
-      className={cn(
-        className,
-        "drop-shadow-sm",
-      )}
+      className={cn(className, "drop-shadow-sm")}
     >
       {word}
       {children}
-    </motion.h1>
+    </MotionTag>
   );
 };
 
