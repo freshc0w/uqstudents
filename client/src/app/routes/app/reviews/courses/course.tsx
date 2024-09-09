@@ -1,5 +1,5 @@
 import { ReviewLayout } from "@/components/layouts/review-layout";
-import { H1, H2, H3, Medium, P } from "@/components/typography";
+import { H1, H2, H3, Large, Medium, P, Small } from "@/components/typography";
 import { useParams } from "react-router-dom";
 import courseInfos from "@/features/reviews/courses/assets/course-info.json"; // ! TEMPORARY
 import BoxReveal from "@/components/ui/box-reveal";
@@ -7,6 +7,8 @@ import { CourseHeaderInfo } from "@/features/reviews/courses/components/course-h
 import { CourseInfo } from "@/features/reviews/courses/types";
 import { SecatTable } from "@/features/reviews/courses/components/secat-table";
 import { ReviewsList } from "@/features/reviews/courses/components/reviews-list";
+import { CommentRatings } from "@/components/ui/ratings";
+import { Separator } from "@/components/ui/separator";
 
 // TODO: Implement Head for SEO
 export const CourseRoute = () => {
@@ -28,10 +30,26 @@ export const CourseRoute = () => {
 
   return (
     <ReviewLayout>
-      <aside className="p-2 sm:p-3 md:p-5 lg:p-6 border border-red-200 sm:w-1/3">
+      <aside className="p-2 sm:p-3 md:p-5 lg:p-6 sm:w-1/3 space-y-2">
         <SecatTable code={courseCode as string} />
+        <div className="flex gap-4 justify-around">
+          <CommentRatings
+            rating={3.5}
+            variant="complementary"
+            readOnly
+            noText
+            size={25}
+          />
+          <Separator orientation="vertical" className="w-[2px]" />
+          <Small className="font-light">
+            <Large className="inline text-complementary sm:text-xl md:text-2xl">
+              98
+            </Large>{" "}
+            average of <span className="font-bold italic">35</span> reviews
+          </Small>
+        </div>
       </aside>
-      <main className="p-2 sm:p-3 md:p-5 lg:p-6 border border-yellow-200 sm:w-2/3">
+      <main className="p-2 sm:p-3 md:p-5 lg:p-6 sm:w-2/3">
         <CourseHeaderInfo courseInfo={courseInfo} />
         <section className="py-2 md:py-4">
           <BoxReveal duration={0.5} boxColor="primary">

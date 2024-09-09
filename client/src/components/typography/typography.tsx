@@ -91,7 +91,7 @@ const Medium: React.FC<Props> = ({ className, children }) => {
 
 const Small: React.FC<Props> = ({ className, children }) => {
   return (
-    <div className={`text-sm font-medium leading-none ${className}`}>
+    <div className={`text-xs sm:text-sm font-medium leading-none ${className}`}>
       {children}
     </div>
   );
