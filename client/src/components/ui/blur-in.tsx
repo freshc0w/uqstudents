@@ -20,7 +20,7 @@ const BlurIn = ({
   variant,
   duration = 1,
   children,
-  Tag = "h1",
+  Tag = "div",
 }: BlurIntProps) => {
   const defaultVariants = {
     hidden: { filter: "blur(10px)", opacity: 0 },

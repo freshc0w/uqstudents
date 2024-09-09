@@ -66,7 +66,7 @@ export const CourseDisplayInfo = ({ courseInfo }: CourseInfoProps) => {
   };
   return (
     <>
-      <BlurIn duration={0.75}>
+      <BlurIn duration={0.75} className="space-y-2">
         <div className="flex gap-2 justify-around">
           <Ratings
             rating={3.5}
