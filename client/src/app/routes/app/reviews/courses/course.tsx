@@ -7,8 +7,16 @@ import { CourseHeaderInfo } from "@/features/reviews/courses/components/course-h
 import { CourseInfo } from "@/features/reviews/courses/types";
 import { SecatTable } from "@/features/reviews/courses/components/secat-table";
 import { ReviewsList } from "@/features/reviews/courses/components/reviews-list";
-import { CommentRatings } from "@/components/ui/ratings";
-import { Separator } from "@/components/ui/separator";
+import { CourseDisplayInfo } from "@/features/reviews/courses/components/course-display-info";
+import { Button } from "@/components/ui/button";
+import {
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalTrigger,
+} from "@/components/ui/animated-modal";
+import { SquarePen } from "lucide-react";
 
 // TODO: Implement Head for SEO
 export const CourseRoute = () => {
@@ -32,29 +40,29 @@ export const CourseRoute = () => {
     <ReviewLayout>
       <aside className="p-2 sm:p-3 md:p-5 lg:p-6 sm:w-1/3 space-y-2">
         <SecatTable code={courseCode as string} />
-        <div className="flex gap-4 justify-around">
-          <CommentRatings
-            rating={3.5}
-            variant="complementary"
-            readOnly
-            noText
-            size={25}
-          />
-          <Separator orientation="vertical" className="w-[2px]" />
-          <Small className="font-light">
-            <Large className="inline text-complementary sm:text-xl md:text-2xl">
-              98
-            </Large>{" "}
-            average of <span className="font-bold italic">35</span> reviews
-          </Small>
-        </div>
+        <CourseDisplayInfo courseInfo={courseInfo} />
       </aside>
       <main className="p-2 sm:p-3 md:p-5 lg:p-6 sm:w-2/3">
         <CourseHeaderInfo courseInfo={courseInfo} />
         <section className="py-2 md:py-4">
-          <BoxReveal duration={0.5} boxColor="primary">
-            <H2 className="border-none">What are other students saying?</H2>
-          </BoxReveal>
+          <div className="flex items-center justify-between">
+            <BoxReveal duration={0.5} boxColor="primary">
+              <H2 className="border-none">What are other students saying?</H2>
+            </BoxReveal>
+            <Modal>
+              <ModalTrigger className="flex justify-center group/modal-btn">
+                <span className="group-hover/modal-btn:translate-x-40 text-center transition duration-500">
+                  Add a Review
+                </span>
+                <div className="-translate-x-40 group-hover/modal-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-white z-20">
+                  <SquarePen size={20} />
+                </div>
+              </ModalTrigger>
+              <ModalBody>
+                <div>Add your review goes here</div>
+              </ModalBody>
+            </Modal>
+          </div>
           <ReviewsList />
         </section>
       </main>
