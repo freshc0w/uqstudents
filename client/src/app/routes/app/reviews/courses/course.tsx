@@ -1,5 +1,5 @@
 import { ReviewLayout } from "@/components/layouts/review-layout";
-import { H1, H2, P } from "@/components/typography";
+import { H1, H2, H3, Large, Medium, P, Small } from "@/components/typography";
 import { useParams } from "react-router-dom";
 import courseInfos from "@/features/reviews/courses/assets/course-info.json"; // ! TEMPORARY
 import BoxReveal from "@/components/ui/box-reveal";
