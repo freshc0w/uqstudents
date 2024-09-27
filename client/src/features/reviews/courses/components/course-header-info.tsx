@@ -3,6 +3,7 @@ import BoxReveal from "@/components/ui/box-reveal";
 import { HalfSeparator } from "@/components/ui/half-separator";
 import { CourseInfo } from "@/features/reviews/courses/types";
 import { Separator } from "@/components/ui/separator";
+import BlurIn from "@/components/ui/blur-in";
 
 type CourseHeaderInfoProps = {
   courseInfo: CourseInfo;
@@ -21,10 +22,12 @@ export const CourseHeaderInfo = ({ courseInfo }: CourseHeaderInfoProps) => {
       <HalfSeparator className="bg-primary mt-2" />
       <div className="mt-6">
         <BoxReveal duration={0.5} boxColor="primary">
-          <P className="leading-normal">{summary}</P>
+          <BlurIn duration={0.75}>
+            <P className="leading-normal">{summary}</P>
+          </BlurIn>
         </BoxReveal>
       </div>
-      <Separator className="mt-3 sm:mt-5 md:mt-7" />
+      <Separator className="mt-3 sm:mt-5 md:mt-7 bg-muted-foreground" />
     </>
   );
 };
